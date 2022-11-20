@@ -41,10 +41,10 @@ class LoginActivity : AppCompatActivity() {
         val tfEmail = binding.tfEmail.editText?.text.toString()
         val tfPass = binding.tfPass.editText?.text.toString()
 
-        if (tfEmail.equals("") || tfPass.equals("")){
+        if (tfEmail == "" || tfPass == ""){
             Toast.makeText(this@LoginActivity, "Contesta todos los campos", Toast.LENGTH_SHORT).show()
         } else {
-            println("tfEmail"+tfEmail)
+            println("tfEmail$tfEmail")
             validateAccess()
         }
     }
