@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BottomSheetDialogFragment"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:id="@+id/fr_users"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/imgUsers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_supervisor_account_24" />
+
+        <TextView
+            android:id="@+id/tv_users"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:layout_toRightOf="@+id/imgUsers"
+            android:text="Users" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fr_customers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/fr_users"
+        app:layout_constraintStart_toStartOf="@+id/fr_users"
+        app:layout_constraintTop_toBottomOf="@+id/fr_users">
+
+
+        <ImageButton
+            android:id="@+id/imgCustomers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_list_alt_24" />
+
+        <TextView
+            android:id="@+id/tv_customers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:layout_toRightOf="@+id/imgCustomers"
+            android:text="Customers" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fr_branch_offices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/fr_customers"
+        app:layout_constraintStart_toStartOf="@+id/fr_customers"
+        app:layout_constraintTop_toBottomOf="@+id/fr_customers">
+
+        <ImageButton
+            android:id="@+id/imgBranchOffices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_store_24" />
+
+        <TextView
+            android:id="@+id/frgBranchOffices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:layout_toRightOf="@+id/imgBranchOffices"
+            android:text="Branch offices" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
