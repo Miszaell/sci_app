@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.codeiu.sci_app.R
+import com.codeiu.sci_app.adapters.UserAdapter
+import com.codeiu.sci_app.dataClases.UserProvider
+import com.codeiu.sci_app.databinding.FragmentUsersBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,7 +25,7 @@ class UsersFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    var binding: FragmentUsersBinding ?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -30,13 +34,15 @@ class UsersFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_users, container, false)
+        binding = FragmentUsersBinding.inflate(inflater, container, false)
+
+        binding!!.recyclerUsers.layoutManager = LinearLayoutManager(container!!.context)
+        binding!!.recyclerUsers.adapter = UserAdapter(UserProvider.userList)
+        return binding?.root
     }
+
 
     companion object {
         /**
@@ -57,4 +63,5 @@ class UsersFragment : Fragment() {
                 }
             }
     }
+
 }

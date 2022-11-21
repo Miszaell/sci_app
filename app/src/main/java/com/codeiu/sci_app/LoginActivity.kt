@@ -9,7 +9,6 @@ import com.codeiu.sci_app.extras.GobalVariables
 import com.codeiu.sci_app.extras.Models.*
 import com.codeiu.sci_app.databinding.ActivityLoginBinding
 import com.google.gson.Gson
-import com.squareup.picasso.Picasso
 import okhttp3.*
 import java.io.IOException
 
@@ -29,7 +28,9 @@ class LoginActivity : AppCompatActivity() {
 //            .into(binding.imgLogin)
 
         binding.btnLogin.setOnClickListener{
-            validateCredentials()
+//            validateCredentials()
+            val intent = Intent(this@LoginActivity,MainActivity::class.java)
+            startActivity(intent)
         }
 
     }
