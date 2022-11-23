@@ -14,11 +14,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-                <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardMaxElevation="10dp"
+                app:cardPreventCornerOverlap="true"
+                android:layout_margin="10dp"
+                android:outlineSpotShadowColor="@color/DarkSecondaryColor"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginVertical="10dp"
+                    android:layout_gravity="bottom|center"
+                    />
+            </androidx.cardview.widget.CardView>
+            <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp">
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/DarkSecondaryColor"
+                >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -28,60 +51,31 @@
                     <!-- Media -->
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="194dp"
-                        app:srcCompat="@drawable/flower"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_sci"
                         android:scaleType="centerCrop"
                         android:contentDescription="@string/content_description_media"
                         />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/title"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/secondary_text"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="@string/supporting_text"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary"
-                            />
-
-                    </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
-                            android:orientation="horizontal">
-                            <com.google.android.material.button.MaterialButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="8dp"
-                                android:text="@string/action_1"
-                                style="?attr/borderlessButtonStyle"
-                                />
-                            <com.google.android.material.button.MaterialButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/action_2"
-                                style="?attr/borderlessButtonStyle"
-                                />
-                        </LinearLayout>
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_margin="8dp"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <com.google.android.material.button.MaterialButton-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginEnd="8dp"-->
+<!--                                android:text="@string/action_1"-->
+<!--                                style="?attr/borderlessButtonStyle"-->
+<!--                                />-->
+<!--                            <com.google.android.material.button.MaterialButton-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="@string/action_2"-->
+<!--                                style="?attr/borderlessButtonStyle"-->
+<!--                                />-->
+<!--                        </LinearLayout>-->
 
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>

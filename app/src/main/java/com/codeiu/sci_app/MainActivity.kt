@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.codeiu.sci_app.adapters.UserAdapter
 import com.codeiu.sci_app.dataClases.UserProvider
 import com.codeiu.sci_app.databinding.ActivityMainBinding
-import com.codeiu.sci_app.databinding.FragmentBottomSheetDialogBinding
 import com.codeiu.sci_app.databinding.FragmentUsersBinding
 import com.codeiu.sci_app.fragments.*
+import com.codeiu.sci_app.utils.replaceFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -35,15 +35,15 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
-                    replaceFragment(homeFragment())
+                    replaceFragment(homeFragment(),this)
                     true
                 }
                 R.id.account -> {
-                    replaceFragment(AccountFragment())
+                    replaceFragment(AccountFragment(),this)
                     true
                 }
                 R.id.help -> {
-                    replaceFragment(HelpFragment())
+                    replaceFragment(HelpFragment(),this)
                     true
                 }
                 R.id.exit -> {
@@ -67,13 +67,6 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout, fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
-    }
-
     private fun sendToLogin() {
         val intent = Intent(this@MainActivity, LoginActivity::class.java)
         startActivity(intent)
@@ -88,22 +81,22 @@ class MainActivity : AppCompatActivity() {
 
         btnUsers?.setOnClickListener {
             dialog.dismiss()
-            replaceFragment(UsersFragment())
+            replaceFragment(UsersFragment(), this)
         }
         btnCustomers?.setOnClickListener {
             dialog.dismiss()
-            replaceFragment(CustomersFragment())
+            replaceFragment(CustomersFragment(), this)
         }
         btnBranchOffices?.setOnClickListener {
             dialog.dismiss()
-            replaceFragment(MapsFragment())
+            replaceFragment(MapsFragment(), this)
         }
         dialog.show()
     }
 
     private fun initRecyclerView(){
         usersBindig.recyclerUsers.layoutManager = LinearLayoutManager(this)
-        usersBindig.recyclerUsers.adapter = UserAdapter(UserProvider.userList)
+        usersBindig.recyclerUsers.adapter = UserAdapter(UserProvider.userList,UserProvider.userList.toTypedArray())
     }
 
 

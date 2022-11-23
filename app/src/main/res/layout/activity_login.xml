@@ -84,6 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginVertical="30dp"
         app:icon="@drawable/ic_login"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
