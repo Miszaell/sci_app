@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
         btnBranchOffices?.setOnClickListener {
             dialog.dismiss()
-            replaceFragment(MapsFragment(), this)
+            replaceFragment(BranchOfficesFragment(), this)
         }
         dialog.show()
     }

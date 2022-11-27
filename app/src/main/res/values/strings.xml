@@ -29,4 +29,7 @@
     <string name="tfName">Name</string>
     <string name="userSave">Save</string>
     <string name="edit">Edit</string>
+    <string name="branchOfficeFragment">Branch Offices</string>
+    <string name="boAdd">Add</string>
+    <string name="tfLocation">Location</string>
 </resources>
