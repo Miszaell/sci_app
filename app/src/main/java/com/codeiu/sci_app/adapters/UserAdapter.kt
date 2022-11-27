@@ -11,7 +11,7 @@ import com.google.gson.Gson
 import com.codeiu.sci_app.fragments.UserFormFragment
 import com.codeiu.sci_app.utils.replaceFragment
 
-class UserAdapter(private val userList:List<Users>, private val dataSet: Array<Users>): RecyclerView.Adapter<UserViewHolder>() {
+class UserAdapter(private val userList:List<Users>): RecyclerView.Adapter<UserViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
         return UserViewHolder(layoutInflater)
@@ -23,7 +23,7 @@ class UserAdapter(private val userList:List<Users>, private val dataSet: Array<U
         holder.render(item)
         holder.itemView.setOnClickListener {
             var jsonObj = Gson()
-            var jsonUser = jsonObj.toJson(dataSet[position])
+            var jsonUser = jsonObj.toJson(userList[position])
             var bundle = bundleOf("jsonUser" to jsonUser)
 
             val activity = it.context as AppCompatActivity

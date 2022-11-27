@@ -4,10 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RelativeLayout
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.codeiu.sci_app.adapters.UserAdapter
-import com.codeiu.sci_app.dataClases.UserProvider
 import com.codeiu.sci_app.databinding.ActivityMainBinding
 import com.codeiu.sci_app.databinding.FragmentUsersBinding
 import com.codeiu.sci_app.fragments.*
@@ -24,14 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         usersBindig = FragmentUsersBinding.inflate(layoutInflater)
-
+        val intent = intent.getStringExtra("uname")
         setContentView(binding.root)
-
         bottomNavigationView = findViewById(R.id.bottom_navigation_view)
         bottomNavigationView.background = null
         loadFragment(homeFragment())
-
-        initRecyclerView()
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
@@ -39,7 +34,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.account -> {
-                    replaceFragment(AccountFragment(),this)
+                    var bnd = bundleOf("uname" to intent)
+                    replaceFragment(AccountFragment(),this, bnd)
                     true
                 }
                 R.id.help -> {
@@ -59,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                 showDialogOne()
             }
         }
+
     }
 
     private fun loadFragment(fragment: Fragment) {
@@ -93,14 +90,6 @@ class MainActivity : AppCompatActivity() {
         }
         dialog.show()
     }
-
-    private fun initRecyclerView(){
-        usersBindig.recyclerUsers.layoutManager = LinearLayoutManager(this)
-        usersBindig.recyclerUsers.adapter = UserAdapter(UserProvider.userList,UserProvider.userList.toTypedArray())
-    }
-
-
-
 
 }
 

@@ -20,7 +20,7 @@ private const val ARG_PARAM2 = "param2"
 class UsersFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
-    private var binding: FragmentUsersBinding ?= null
+    private lateinit var binding: FragmentUsersBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -31,19 +31,16 @@ class UsersFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentUsersBinding.inflate(inflater, container, false)
-        var view = binding!!
-        binding!!.recyclerUsers.layoutManager = LinearLayoutManager(container!!.context)
+        binding.recyclerUsers.layoutManager = LinearLayoutManager(container!!.context)
 
-        binding!!.recyclerUsers.adapter = UserAdapter(UserProvider.userList, UserProvider.userList.toTypedArray())
+        binding.recyclerUsers.adapter = UserAdapter(UserProvider.userList)
 
-        view.btnAdd.setOnClickListener {
+        binding.btnAdd.setOnClickListener {
             replaceFragment(UserFormFragment(), activity as AppCompatActivity)
         }
 
-
-        return view.root
+        return binding.root
     }
-
 
     companion object {
         @JvmStatic
@@ -55,6 +52,4 @@ class UsersFragment : Fragment() {
                 }
             }
     }
-
-
 }

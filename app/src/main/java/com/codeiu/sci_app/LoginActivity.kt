@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener{
 //            validateCredentials()
             val intent = Intent(this@LoginActivity,MainActivity::class.java)
+            intent.putExtra("uname", "Misael")
             startActivity(intent)
         }
 
@@ -45,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
         if (tfEmail == "" || tfPass == ""){
             Toast.makeText(this@LoginActivity, "Contesta todos los campos", Toast.LENGTH_SHORT).show()
         } else {
-            println("tfEmail$tfEmail")
             validateAccess()
         }
     }
@@ -63,7 +63,6 @@ class LoginActivity : AppCompatActivity() {
 
         client.newCall(req).enqueue(object: Callback {
             override fun onFailure(call: Call, e: IOException) {
-                println(e)
                 Toast.makeText(this@LoginActivity, "Error desconocido", Toast.LENGTH_SHORT).show()
             }
 
